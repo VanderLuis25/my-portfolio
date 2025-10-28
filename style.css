@@ -973,6 +973,7 @@ footer p {
 /* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
+    width: 100%;
     height: 75px;
     padding: 0 15px;
   }
