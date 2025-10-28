@@ -844,8 +844,8 @@ footer p {
   }
 }
 
-/* Tablets e Celulares (até 850px) */
-@media (max-width: 850px) {
+/* Telas de tablet e celular (até 1200px) */
+@media (max-width: 1200px) {
   #menu-icon {
     display: block; /* Mostra o ícone do menu */
   }
