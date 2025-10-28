@@ -803,6 +803,10 @@ footer p {
 
 /* Tablets e Desktops pequenos (até 1200px) */
 @media (max-width: 1200px) {
+  .logo h1 {
+    display: none;
+  }
+
   #menu-icon {
     display: block; /* Mostra o ícone do menu */
   }
