@@ -32,7 +32,6 @@ header {
   z-index: 1;
   transition: background-color 0.5s ease;
   padding: 0 20px;
-  flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
 }
 header .logo {
   display: flex;
@@ -87,12 +86,6 @@ header .logo {
   transition: all 0.2s ease;
   white-space: nowrap;
 }
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 header .language-selector button {
   display: flex;
   align-items: center;
@@ -117,7 +110,6 @@ header button:active {
   font-size: 28px;
   color: var(--text-light);
   cursor: pointer;
-  order: 2; /* Garante que o ícone venha depois do seletor de idioma */
 }
 .navbar a:hover {
   scale: 1.1;
@@ -812,12 +804,12 @@ footer p {
 
 /* Tablets e Desktops pequenos (até 1200px) */
 @media (max-width: 1200px) {
-  .logo h1 {
-    display: none;
-  }
-
   #menu-icon {
     display: block; /* Mostra o ícone do menu */
+  }
+
+  .logo h1 {
+    display: none; /* Oculta o texto do logo em telas menores */
   }
 
   .navbar {
@@ -865,13 +857,13 @@ footer p {
     flex-direction: column;
   }
 
-  /* Reposiciona os ícones sociais para o rodapé em telas menores */
+  /* Reposiciona os ícones sociais para o rodapé */
   .social-links {
     position: static;
     transform: none;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    width: 100%; /* Garante que o container ocupe a largura total */
     margin-top: 30px;
     padding-bottom: 20px; /* Adiciona espaço no final */
   }
@@ -888,10 +880,6 @@ footer p {
 
 /* Tablets (até 992px) */
 @media (max-width: 992px) {
-  .logo h1 {
-    font-size: 28px;
-  }
-
   .home-content h1 {
     font-size: 36px;
   }
@@ -921,12 +909,10 @@ footer p {
   }
 
   .logo h1 {
-    display: none; /* Oculta o texto do logo em telas muito pequenas */
+    display: none;
   }
 
   .home-content h1 {
-    font-size: 32px;
-    /* Desativa a animação de digitação para economizar recursos */
     animation: none;
     width: auto;
     border: none;
@@ -965,7 +951,8 @@ footer p {
 
 /* Celulares menores (até 576px) */
 @media (max-width: 576px) {
-  .home-content h1 {
+  .home-content h1,
+  #contatos h1 {
     font-size: 28px;
   }
 
@@ -978,11 +965,49 @@ footer p {
     max-width: 300px;
   }
 
-  #contatos h1 {
-    font-size: 32px;
-  }
-
   #contatos p {
     font-size: 16px;
+  }
+}
+
+/* Celulares muito pequenos (até 480px) */
+@media (max-width: 480px) {
+  header {
+    height: 75px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .home-content h1,
+  #contatos h1,
+  .sobre h1,
+  #projetos h1,
+  .certificados h1 {
+    font-size: 24px;
+  }
+
+  .home-content h2 {
+    font-size: 16px;
+  }
+
+  .home-content h5 {
+    font-size: 13px;
+  }
+
+  .sobre-content p,
+  #contatos p {
+    font-size: 15px;
+  }
+
+  .foto-perfil img {
+    width: 200px;
+  }
+
+  .card {
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
   }
 }
