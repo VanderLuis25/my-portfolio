@@ -31,7 +31,7 @@ header {
   position: fixed;
   z-index: 1;
   transition: background-color 0.5s ease; /* Adiciona transição suave na cor */
-  padding: 0 20px; /* Reduz o espaçamento lateral para telas menores */
+  padding: 0px 40px; /* Adiciona espaçamento nas laterais */
 }
 header .logo {
   display: flex;
@@ -205,12 +205,11 @@ header button:active {
 
 .home-content h1 {
   font-size: 50px;
-  color: var(--text-light); /* Alterado para branco para melhor contraste */
+  color: var(--text-dark);
   text-shadow: 0px 4px 24px rgba(0, 223, 252, 0.445);
   white-space: nowrap;
   overflow: hidden;
   border-right: none;
-  text-align: center; /* Garante o alinhamento central */
   width: 0;
   animation: typing 4s steps(20, end) infinite alternate;
 }
@@ -790,18 +789,6 @@ footer p {
     opacity: 1;
   }
 }
-/* Responsividade */
-@media (max-width: 768px) {
-  .certificados-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .certificado-card {
-    padding: 20px;
-  }
-}
-
 /* === RESPONSIVIDADE === */
 
 /* Telas grandes (ex: Desktops > 1200px) */
@@ -809,43 +796,12 @@ footer p {
   header,
   main,
   footer {
-    padding-left: calc(
-      5% + 60px
-    ); /* Adiciona espaço para os ícones sociais não sobreporem o conteúdo */
+    padding-left: calc(5% + 80px); /* Adiciona espaço para os ícones sociais */
     padding-right: 5%;
   }
 }
 
-/* Tablets e Desktops pequenos (até 1024px) */
-@media (max-width: 1024px) {
-  header {
-    padding: 0 20px;
-  }
-  .navbar {
-    gap: 25px;
-  }
-  .logo h1 {
-    font-size: 32px;
-  }
-  .home-content h1 {
-    font-size: 42px;
-  }
-  .home-content h2 {
-    font-size: 26px;
-  }
-  .social-links {
-    left: 15px;
-  }
-  .social-icon {
-    width: 50px;
-    height: 50px;
-  }
-  .social-icon i {
-    font-size: 24px;
-  }
-}
-
-/* Telas de tablet e celular (até 1200px) */
+/* Tablets e Desktops pequenos (até 1200px) */
 @media (max-width: 1200px) {
   #menu-icon {
     display: block; /* Mostra o ícone do menu */
@@ -862,6 +818,7 @@ footer p {
     gap: 20px;
     padding: 20px 0;
     transition: left 0.4s ease;
+    z-index: 100;
   }
 
   .navbar.active {
@@ -869,8 +826,7 @@ footer p {
   }
 
   .language-selector {
-    margin-left: 0;
-    margin-top: 20px; /* Adiciona espaço no menu mobile */
+    margin-left: auto; /* Move o seletor de idioma para a direita */
   }
 
   .navbar a {
@@ -878,16 +834,16 @@ footer p {
   }
 
   .home-content h1 {
-    font-size: 40px; /* Ajuste fino para o novo breakpoint */
+    font-size: 40px;
   }
 
   .home-content h2 {
-    font-size: 24px; /* Ajuste fino para o novo breakpoint */
+    font-size: 24px;
   }
 
   .home-content h5 {
     font-size: 16px;
-    padding: 0 10px;
+    padding: 0 20px;
     text-align: center;
   }
 
@@ -900,43 +856,124 @@ footer p {
     flex-direction: column;
   }
 
-  /* Reposiciona os ícones sociais para o fluxo normal da página */
+  /* Reposiciona os ícones sociais para o rodapé em telas menores */
   .social-links {
-    position: static; /* Remove a posição fixa */
-    transform: none; /* Reseta a transformação vertical */
-    flex-direction: row; /* Alinha os ícones horizontalmente */
-    justify-content: center; /* Centraliza os ícones */
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
-    margin-top: 30px; /* Adiciona um espaço acima */
+    margin-top: 30px;
+    padding-bottom: 20px; /* Adiciona espaço no final */
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-icon i {
+    font-size: 24px;
   }
 }
 
-/* Celulares (até 480px) */
-@media (max-width: 480px) {
-  /* Ajustes finos para celulares menores */
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
   .logo h1 {
-    display: none; /* Oculta o texto do logo, mantendo só a imagem */
-  }
-
-  .navbar a {
-    font-size: 14px;
-    padding: 6px 8px;
+    font-size: 28px;
   }
 
   .home-content h1 {
-    font-size: 2rem; /* Usa unidade relativa para melhor adaptação */
-    white-space: normal; /* Permite quebra de linha */
-    width: 100%; /* Ocupa a largura total */
-    animation: none; /* Desativa a animação de digitação */
-    border-right: none; /* Remove a borda da animação */
+    font-size: 36px;
+  }
+
+  .home-content h2 {
+    font-size: 22px;
+  }
+
+  .sobre-content {
+    max-width: 90%;
   }
 
   .foto-perfil img {
-    width: 250px; /* Reduz o tamanho da foto de perfil */
+    width: 280px;
+  }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo h1 {
+    display: none; /* Oculta o texto do logo em telas muito pequenas */
+  }
+
+  .home-content h1 {
+    font-size: 32px;
+    /* Desativa a animação de digitação para economizar recursos */
+    animation: none;
+    width: auto;
+    border: none;
+  }
+
+  .home-content h2 {
+    font-size: 20px;
+  }
+
+  .home-content h5 {
+    font-size: 14px;
+  }
+
+  .sobre-container {
+    gap: 30px;
+  }
+
+  .foto-perfil img {
+    width: 250px;
+  }
+
+  .certificados-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .certificado-card {
+    padding: 20px;
+  }
+
+  footer div {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Celulares menores (até 576px) */
+@media (max-width: 576px) {
+  .home-content h1 {
+    font-size: 28px;
+  }
+
+  .home-content h2 {
+    font-size: 18px;
   }
 
   .card {
-    width: 90%; /* Ocupa quase toda a largura */
-    max-width: 280px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  #contatos h1 {
+    font-size: 32px;
+  }
+
+  #contatos p {
+    font-size: 16px;
   }
 }
