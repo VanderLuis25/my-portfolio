@@ -85,7 +85,25 @@ header .logo {
   display: flex;
   transition: all 0.2s ease;
 }
+header .language-selector button{ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 100px;
+  background-color: #00eeff;
+  color: #ffffff;
+  border-color: #00eeff;
+  box-shadow: 0px 0px 10px rgb(0, 255, 255);
 
+}
+header button:active{
+  border-color: #000000;
+  color: #000000;
+  box-shadow:none;
+}
 /* Ícone do Menu Hambúrguer (inicialmente escondido em telas grandes) */
 #menu-icon {
   display: none;
