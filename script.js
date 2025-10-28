@@ -1,3 +1,84 @@
+const translations = {
+  en: {
+    navHome: "Home",
+    navAbout: "About",
+    navProjects: "Projects",
+    navCertificates: "Certificates",
+    navContact: "Contact",
+    homeTitle: "Vander Luis de Oliveira",
+    homeSubtitle: "Full Stack Developer in training",
+    homeDescription: "Every line of code is a firm step. Let's turn the learning journey into the architecture of great solutions.",
+    aboutTitle: "About Me",
+    aboutGreeting: "Hello, I'm Vander Luis!",
+    aboutP1: "I am a <strong>Full Stack Developer</strong> passionate about technology. I am 36 years old and currently studying <strong>Computer Engineering</strong> at Univesp, combining my academic background with web development practice.",
+    aboutP2: "To accelerate my career, I joined <strong>DevClub</strong>, where I have been consolidating my knowledge through practical projects and a curriculum aligned with market demands, with certifications in <strong>HTML, CSS, and Git/GitHub</strong>.",
+    aboutP3: "Currently, I am pursuing certification in <strong>JavaScript and React</strong> as the next steps in my full-stack evolution, applying all my learning to <strong>real solutions</strong> and writing code with excellence.",
+    aboutP4: "I believe that <strong>dedication and constant evolution</strong> are the foundation for quality work.",
+    downloadCV: "Download CV",
+    profilePicAlt: "Profile Picture",
+    projectsTitle: "Projects",
+    projectTechStoreDesc: "Project of an electronics store created with HTML, CSS, and JavaScript.",
+    projectCafeAromaDesc: "Project of a coffee shop created with HTML, CSS, and JavaScript.",
+    projectBarbershopDesc: "Project of a barbershop created with HTML, CSS, and JavaScript.",
+    viewProject: "View Project",
+    certificatesTitle: "Certificates",
+    certPlatform: "Platform:",
+    certCompleted: "Completed on:",
+    certInstructor: "Instructor:",
+    certView: "View Certificate",
+    contactTitle: "Let's Connect!",
+    contactIntro: "I am open to new opportunities and collaborations. Feel free to get in touch through the form or the links below.",
+    formName: "Your name",
+    formEmail: "Your email",
+    formSubject: "Subject",
+    formMessage: "Your message",
+    formSubmit: "Send Message",
+    successMessage: "Message sent successfully! I will get in touch soon.",
+    errorMessage: "Error sending message. Please try again or contact me via social media.",
+    footerRights: "© 2024 Vander Luis de Oliveira. All rights reserved.",
+    modalCertAlt: "Certificate"
+  },
+  pt: {
+    navHome: "Home",
+    navAbout: "Sobre",
+    navProjects: "Projetos",
+    navCertificates: "Certificados",
+    navContact: "Contato",
+    homeTitle: "Vander Luis de Oliveira",
+    homeSubtitle: "Desenvolvedor Full Stack em formação",
+    homeDescription: "Cada linha de código é um passo firme. Vamos transformar a jornada do aprendizado na arquitetura de grandes soluções.",
+    aboutTitle: "Sobre Mim",
+    aboutGreeting: "Olá, eu sou o Vander Luis!",
+    aboutP1: "Sou um <strong>Desenvolvedor FullStack</strong> apaixonado por tecnologia. Tenho 36 anos e atualmente curso <strong>Engenharia da Computação</strong> pela Univesp, combinando minha formação acadêmica com a prática no desenvolvimento web.",
+    aboutP2: "Para acelerar minha trajetória, ingressei no <strong>DevClub</strong>, onde tenho consolidado meu conhecimento através de projetos práticos e um currículo alinhado com as demandas do mercado, com certificações em <strong>HTML, CSS e Git/GitHub</strong>.",
+    aboutP3: "Atualmente, estou em busca da certificação em <strong>JavaScript e React</strong> como próximos passos na minha evolução full-stack, aplicando todo o aprendizado em <strong>soluções reais</strong> e escrevendo código com excelência.",
+    aboutP4: "Acredito que <strong>dedicação e evolução constante</strong> são a base para um trabalho de qualidade.",
+    downloadCV: "Baixar Currículo",
+    profilePicAlt: "Foto de Perfil",
+    projectsTitle: "Projetos",
+    projectTechStoreDesc: "Projeto de uma loja de eletrônicos criado com HTML, CSS e JavaScript.",
+    projectCafeAromaDesc: "Projeto de uma cafeteria criado com HTML, CSS e JavaScript.",
+    projectBarbershopDesc: "Projeto de uma barbearia criado com HTML, CSS e JavaScript.",
+    viewProject: "Ver Projeto",
+    certificatesTitle: "Certificados",
+    certPlatform: "Plataforma:",
+    certCompleted: "Concluído em:",
+    certInstructor: "Instrutor:",
+    certView: "Ver Certificado",
+    contactTitle: "Vamos nos Conectar!",
+    contactIntro: "Estou aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato através do formulário ou dos links abaixo.",
+    formName: "Seu nome",
+    formEmail: "Seu email",
+    formSubject: "Assunto",
+    formMessage: "Sua mensagem",
+    formSubmit: "Enviar Mensagem",
+    successMessage: "Mensagem enviada com sucesso! Entrarei em contato em breve.",
+    errorMessage: "Erro ao enviar mensagem. Tente novamente ou entre em contato pelas redes sociais.",
+    footerRights: "© 2024 Vander Luis de Oliveira. Todos os direitos reservados.",
+    modalCertAlt: "Certificado"
+  },
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   // --- Lógica do Menu Hambúrguer ---
   const menuIcon = document.getElementById("menu-icon");
@@ -61,33 +142,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const projetos = [
     {
       imagem: "assets/techstore.png",
-      nome: "Tech Store",
-      descricao:
-        "Projeto de uma loja de eletrônicos criado com HTML, CSS e JavaScript.",
+      nome: "Tech Store", // O nome não precisa de tradução se for o nome do projeto
+      descricaoKey: "projectTechStoreDesc",
       link: "https://tech-store-eletronicos.vercel.app/",
     },
     {
       imagem: "assets/cafe-aroma.png",
       nome: "Cafeteria",
-      descricao: "Projeto de uma cafeteria criado com HTML, CSS e JavaScript.",
+      descricaoKey: "projectCafeAromaDesc",
       link: "https://cafeteria-cafearoma.vercel.app/",
     },
     {
       imagem: "assets/Barbershop-New.png",
       nome: "Barbearia Edi Rodrigues",
-      descricao: "Projeto de uma barbearia criado com HTML, CSS e JavaScript.",
+      descricaoKey: "projectBarbershopDesc",
       link: "https://barbershop-new.vercel.app/",
     },
   ];
   const containerProjetos = document.getElementById("container-projetos");
-  projetos.forEach((projeto) => {
+
+  function renderProjects(lang) {
+    containerProjetos.innerHTML = ""; // Limpa os projetos existentes
+    const currentTranslations = translations[lang];
+
+    projetos.forEach((projeto) => {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
         <img src="${projeto.imagem}" alt="${projeto.nome}">
         <h3>${projeto.nome}</h3>
-        <p>${projeto.descricao}</p>
-        <a href="${projeto.link}" target="_blank">Ver Projeto</a>
+        <p data-key="${projeto.descricaoKey}">${currentTranslations[projeto.descricaoKey]}</p>
+        <a href="${projeto.link}" target="_blank" data-key="viewProject">${currentTranslations.viewProject}</a>
     `;
     containerProjetos.appendChild(card);
   });
@@ -170,6 +255,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Observa cada uma das seções
   sections.forEach((section) => headerObserver.observe(section));
+
+  // --- Lógica de Tradução ---
+  const langButtons = document.querySelectorAll(".lang-btn");
+
+  const setLanguage = (lang) => {
+    const elements = document.querySelectorAll("[data-key]");
+    elements.forEach((element) => {
+      const key = element.getAttribute("data-key");
+      const translation = translations[lang][key];
+      if (translation) {
+        // Verifica se o elemento é um placeholder
+        if (element.placeholder !== undefined) {
+          element.placeholder = translation;
+        } else {
+          element.innerHTML = translation;
+        }
+      }
+    });
+    // Renderiza os projetos com o idioma correto
+    renderProjects(lang);
+    // Atualiza o botão ativo
+    langButtons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+    // Salva a preferência no localStorage
+    localStorage.setItem('language', lang);
+  };
+
+  langButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const lang = button.getAttribute("data-lang");
+      setLanguage(lang);
+    });
+  });
+
+  // Verifica se há um idioma salvo e aplica, ou usa 'pt' como padrão
+  const savedLang = localStorage.getItem('language') || 'pt';
+  setLanguage(savedLang);
 
   // --- Lógica do Modal de Certificados ---
   const modal = document.getElementById("certificado-modal");
