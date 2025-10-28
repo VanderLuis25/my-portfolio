@@ -32,6 +32,7 @@ header {
   z-index: 1;
   transition: background-color 0.5s ease;
   padding: 0 20px;
+  flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
 }
 header .logo {
   display: flex;
@@ -86,6 +87,12 @@ header .logo {
   transition: all 0.2s ease;
   white-space: nowrap;
 }
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 header .language-selector button {
   display: flex;
   align-items: center;
@@ -110,6 +117,7 @@ header button:active {
   font-size: 28px;
   color: var(--text-light);
   cursor: pointer;
+  order: 2; /* Garante que o ícone venha depois do seletor de idioma */
 }
 .navbar a:hover {
   scale: 1.1;
@@ -828,10 +836,6 @@ footer p {
 
   .navbar.active {
     left: 0; /* Traz o menu para a tela */
-  }
-
-  .language-selector {
-    margin-left: auto; /* Move o seletor de idioma para a direita */
   }
 
   .navbar a {
