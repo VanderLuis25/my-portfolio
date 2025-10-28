@@ -26,12 +26,12 @@ header {
   height: 85px;
   background-color: var(--primary-color);
   display: flex;
-  justify-content: space-between; /* Alinha itens nas extremidades */
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 1;
-  transition: background-color 0.5s ease; /* Adiciona transição suave na cor */
-  padding: 0px 40px; /* Adiciona espaçamento nas laterais */
+  transition: background-color 0.5s ease;
+  padding: 0 20px;
 }
 header .logo {
   display: flex;
