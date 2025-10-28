@@ -26,7 +26,7 @@ header {
   height: 85px;
   background-color: var(--primary-color);
   display: flex;
-  justify-content: space-around; /* Distribui o espaço de forma mais centralizada */
+  justify-content: space-between; /* Alinha itens nas extremidades */
   align-items: center;
   position: fixed;
   z-index: 1;
@@ -85,7 +85,7 @@ header .logo {
   display: flex;
   transition: all 0.2s ease;
 }
-header .language-selector button{ 
+header .language-selector button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,12 +97,11 @@ header .language-selector button{
   color: #ffffff;
   border-color: #00eeff;
   box-shadow: 0px 0px 10px rgb(0, 255, 255);
-
 }
-header button:active{
+header button:active {
   border-color: #000000;
   color: #000000;
-  box-shadow:none;
+  box-shadow: none;
 }
 /* Ícone do Menu Hambúrguer (inicialmente escondido em telas grandes) */
 #menu-icon {
