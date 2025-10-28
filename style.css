@@ -31,7 +31,7 @@ header {
   position: fixed;
   z-index: 1;
   transition: background-color 0.5s ease; /* Adiciona transição suave na cor */
-  padding: 0px 40px; /* Adiciona espaçamento nas laterais */
+  padding: 0 20px; /* Reduz o espaçamento lateral para telas menores */
 }
 header .logo {
   display: flex;
@@ -205,11 +205,12 @@ header button:active {
 
 .home-content h1 {
   font-size: 50px;
-  color: var(--text-dark);
+  color: var(--text-light); /* Alterado para branco para melhor contraste */
   text-shadow: 0px 4px 24px rgba(0, 223, 252, 0.445);
   white-space: nowrap;
   overflow: hidden;
   border-right: none;
+  text-align: center; /* Garante o alinhamento central */
   width: 0;
   animation: typing 4s steps(20, end) infinite alternate;
 }
@@ -923,9 +924,11 @@ footer p {
   }
 
   .home-content h1 {
-    font-size: 28px;
-    animation: none; /* Opcional: Desativa a animação em telas muito pequenas */
-    width: auto;
+    font-size: 2rem; /* Usa unidade relativa para melhor adaptação */
+    white-space: normal; /* Permite quebra de linha */
+    width: 100%; /* Ocupa a largura total */
+    animation: none; /* Desativa a animação de digitação */
+    border-right: none; /* Remove a borda da animação */
   }
 
   .foto-perfil img {
