@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Adicionando Font Awesome para ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <title>My Portfolio</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/logo.jpg" alt="" />
+        <h1>Port<span>fólio</span></h1>
+      </div>
+      <nav class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contatos">Contato</a>
+      </nav>
+      <!-- Ícone do Menu Hambúrguer -->
+      <i class="fas fa-bars" id="menu-icon"></i>
+    </header>
+    <main>
+      <section id="home">
+        <div class="lines-container">
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+          <div class="line line-4"></div>
+        </div>
+
+        <div class="home-content">
+          <h1>Vander Luis de Oliveira</h1>
+          <h2>Desenvolvedor Full Stack em formação</h2>
+          <h5>
+            Cada linha de código é um passo firme. Vamos transformar a jornada
+            do aprendizado na arquitetura de grandes soluções
+          </h5>
+        </div>
+      </section>
+
+      <section id="sobre" class="sobre">
+        <h1>Sobre Mim</h1>
+        <div class="sobre-container">
+          <div class="sobre-content">
+            <h2>Olá, eu sou o Vander Luis!</h2>
+            <p>
+              Sou um <strong>Desenvolvedor FullStack</strong> apaixonado por
+              tecnologia. Tenho 36 anos e atualmente curso
+              <strong>Engenharia da Computação</strong>
+              pela Univesp, combinando minha formação acadêmica com a prática no
+              desenvolvimento web.
+            </p>
+            <p>
+              Para acelerar minha trajetória, ingressei no
+              <strong>DevClub</strong>, onde tenho consolidado meu conhecimento
+              através de projetos práticos e um currículo alinhado com as
+              demandas do mercado, com certificações em
+              <strong>HTML, CSS e Git/GitHub</strong>.
+            </p>
+            <p>
+              Atualmente, estou em busca da certificação em
+              <strong>JavaScript e React</strong> como próximos passos na minha
+              evolução full-stack, aplicando todo o aprendizado em
+              <strong>soluções reais</strong> e escrevendo código com
+              excelência.
+            </p>
+            <p>
+              Acredito que <strong>dedicação e evolução constante</strong>
+              são a base para um trabalho de qualidade.
+            </p>
+            <!-- Botão de Download do Currículo -->
+            <a href="assets/CV_Vander_Luis_desenvolvedor-frontend.pdf" class="btn-download" download>
+              Baixar Currículo
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          
+          <div class="foto-perfil">
+            <img src="./assets/img-vander-2.png" alt="Foto de Perfil" />
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos">
+        <h1>Projetos</h1>
+        <div id="container-projetos">
+          <!-- Os cards de projeto serão inseridos aqui pelo script.js -->
+        </div>
+      </section>
+
+      <section id="certificados" class="certificados">
+        <h1>Certificados</h1>
+        <div class="certificados-container">
+          <!-- Certificado HTML -->
+          <div class="certificado-card">
+            <div class="certificado-header">
+              <i class="fab fa-html5"></i>
+              <h3>HTML</h3>
+            </div>
+            <div class="certificado-content">
+              <p><strong>Plataforma:</strong> DevClub</p>
+              <p><strong>Concluído em:</strong> 21/03/2025</p>
+              <p><strong>Instrutor:</strong> Rodolfo Mori</p>
+              <button
+                class="btn-certificado"
+                data-src="assets/certificados/Certificado-HTML-DevClub-Full-Stack.png"
+              >
+                Ver Certificado <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Certificado CSS -->
+          <div class="certificado-card">
+            <div class="certificado-header">
+              <i class="fab fa-css3-alt"></i>
+              <h3>CSS</h3>
+            </div>
+            <div class="certificado-content">
+              <p><strong>Plataforma:</strong> DevClub</p>
+              <p><strong>Concluído em:</strong> 03/05/2025</p>
+              <p><strong>Instrutor:</strong> Rodolfo Mori</p>
+              <button
+                class="btn-certificado"
+                data-src="assets/certificados/Certificado-CSS-DevClub-Full-Stack.png"
+              >
+                Ver Certificado <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Certificado Git e GitHub -->
+          <div class="certificado-card">
+            <div class="certificado-header">
+              <i class="fab fa-git-alt"></i>
+              <h3>Git & GitHub</h3>
+            </div>
+            <div class="certificado-content">
+              <p><strong>Plataforma:</strong> DevClub</p>
+              <p><strong>Concluído em:</strong> 07/06/2025</p>
+              <p><strong>Instrutor:</strong> Rodolfo Mori</p>
+              <button
+                class="btn-certificado"
+                data-src="assets/certificados/Certificado-Git&GitHub-DevClub-Full-Stack.png"
+              >
+                Ver Certificado <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contatos">
+        <h1>Vamos nos Conectar!</h1>
+        <p>
+          Estou aberto a novas oportunidades e colaborações. Sinta-se à vontade
+          para entrar em contato através do formulário ou dos links abaixo.
+        </p>
+
+        <form id="contactForm" method="POST">
+          <div class="input-group">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Seu nome"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Seu email"
+              required
+            />
+          </div>
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            placeholder="Assunto"
+            required
+          />
+          <textarea
+            name="message"
+            id="message"
+            rows="5"
+            placeholder="Sua mensagem"
+            required
+          ></textarea>
+          <button type="submit" id="submitBtn">
+            <span class="btn-text">Enviar Mensagem</span>
+            <div class="loading-spinner" style="display: none"></div>
+          </button>
+
+          <!-- Mensagens de feedback -->
+          <div
+            id="successMessage"
+            class="message success-message"
+            style="display: none"
+          >
+            <i class="fas fa-check-circle"></i>
+            Mensagem enviada com sucesso! Entrarei em contato em breve.
+          </div>
+          <div
+            id="errorMessage"
+            class="message error-message"
+            style="display: none"
+          >
+            <i class="fas fa-exclamation-circle"></i>
+            Erro ao enviar mensagem. Tente novamente ou entre em contato pelas
+            redes sociais.
+          </div>
+        </form>
+
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/feed/"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="social-icon"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://web.whatsapp.com/"
+            target="_blank"
+            aria-label="Whatsapp"
+            class="social-icon"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a
+            href="https://github.com/VanderLuis25"
+            target="_blank"
+            aria-label="GitHub"
+            class="social-icon"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contatos">Contatos</a>
+      </div>
+      <p>&copy; 2024 Vander Luis de Oliveira. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal para Certificados -->
+    <div id="certificado-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-img-container">
+          <img id="certificado-img" src="" alt="Certificado" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
