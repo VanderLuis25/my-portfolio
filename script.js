@@ -85,14 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const navLinks = navbar.querySelectorAll("a");
 
-  menuIcon.addEventListener("click", () => {
-    navbar.classList.toggle("active");
-  });
+  if (menuIcon && navbar) {
+    menuIcon.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
 
-  // Fecha o menu ao clicar em um link
-  navLinks.forEach((link) =>
-    link.addEventListener("click", () => navbar.classList.remove("active"))
-  );
+    // Fecha o menu ao clicar em um link
+    navLinks.forEach((link) =>
+      link.addEventListener("click", () => navbar.classList.remove("active"))
+    );
+  }
 
   // --- Lógica de Rolagem Suave (Smooth Scroll) ---
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -113,36 +115,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const sobreContent = document.querySelector(".sobre-content");
   const fotoPerfil = document.querySelector(".foto-perfil");
 
-  const sobreObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Anima o texto da esquerda para a direita
-          sobreContent.style.transform = "translateX(0)";
-          sobreContent.style.opacity = "1";
-          // Anima a imagem da direita para a esquerda
-          fotoPerfil.style.transform = "translateX(0)";
-          fotoPerfil.style.opacity = "1";
-        } else {
-          // Reverte a animação do texto quando a seção sai da tela
-          sobreContent.style.transform = "translateX(-100%)";
-          sobreContent.style.opacity = "0";
-          // Reverte a animação da imagem quando a seção sai da tela
-          fotoPerfil.style.transform = "translateX(100%)";
-          fotoPerfil.style.opacity = "0";
-        }
-      });
-    },
-    { threshold: 0.25 } // A animação começa quando 25% da seção estiver visível
-  );
+  if (sobreSection && sobreContent && fotoPerfil) {
+    // Define os estados iniciais
+    sobreContent.style.transform = "translateX(-100%)";
+    sobreContent.style.opacity = "0";
+    sobreContent.style.transition = "transform 0.8s ease, opacity 0.8s ease";
+    
+    fotoPerfil.style.transform = "translateX(100%)";
+    fotoPerfil.style.opacity = "0";
+    fotoPerfil.style.transition = "transform 0.8s ease, opacity 0.8s ease";
 
-  sobreObserver.observe(sobreSection);
+    const sobreObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Anima o texto da esquerda para a direita
+            sobreContent.style.transform = "translateX(0)";
+            sobreContent.style.opacity = "1";
+            // Anima a imagem da direita para a esquerda
+            fotoPerfil.style.transform = "translateX(0)";
+            fotoPerfil.style.opacity = "1";
+          } else {
+            // Reverte a animação do texto quando a seção sai da tela
+            sobreContent.style.transform = "translateX(-100%)";
+            sobreContent.style.opacity = "0";
+            // Reverte a animação da imagem quando a seção sai da tela
+            fotoPerfil.style.transform = "translateX(100%)";
+            fotoPerfil.style.opacity = "0";
+          }
+        });
+      },
+      { threshold: 0.25 } // A animação começa quando 25% da seção estiver visível
+    );
 
-  /* criar os cards de projetos e colocar imagens do projeto */
+    sobreObserver.observe(sobreSection);
+  }
+
+  // --- Projetos ---
   const projetos = [
     {
       imagem: "assets/techstore.png",
-      nome: "Tech Store", // O nome não precisa de tradução se for o nome do projeto
+      nome: "Tech Store",
       descricaoKey: "projectTechStoreDesc",
       link: "https://tech-store-eletronicos.vercel.app/",
     },
@@ -159,102 +172,121 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://barbershop-new.vercel.app/",
     },
   ];
+  
   const containerProjetos = document.getElementById("container-projetos");
 
   function renderProjects(lang) {
+    if (!containerProjetos) return;
+    
     containerProjetos.innerHTML = ""; // Limpa os projetos existentes
     const currentTranslations = translations[lang];
 
     projetos.forEach((projeto) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
         <img src="${projeto.imagem}" alt="${projeto.nome}">
         <h3>${projeto.nome}</h3>
         <p data-key="${projeto.descricaoKey}">${currentTranslations[projeto.descricaoKey]}</p>
         <a href="${projeto.link}" target="_blank" data-key="viewProject">${currentTranslations.viewProject}</a>
-    `;
-    containerProjetos.appendChild(card);
-  });
+      `;
+      containerProjetos.appendChild(card);
+    });
+  }
 
+  // Animação da Seção "Projetos"
   const projetosSection = document.getElementById("projetos");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          containerProjetos.style.transform = "translateX(0)";
-          containerProjetos.style.opacity = "1";
-        } else {
-          containerProjetos.style.transform = "translateX(-100%)";
-          containerProjetos.style.opacity = "0";
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-  observer.observe(projetosSection);
+  
+  if (containerProjetos && projetosSection) {
+    // Define estado inicial
+    containerProjetos.style.transform = "translateX(-100%)";
+    containerProjetos.style.opacity = "0";
+    containerProjetos.style.transition = "transform 0.8s ease, opacity 0.8s ease";
 
-  // Animação e rolagem suave para a Seção "Contatos"
+    const observerProjetos = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            containerProjetos.style.transform = "translateX(0)";
+            containerProjetos.style.opacity = "1";
+          } else {
+            containerProjetos.style.transform = "translateX(-100%)";
+            containerProjetos.style.opacity = "0";
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observerProjetos.observe(projetosSection);
+  }
+
+  // Animação da Seção "Contatos"
   const contatosSection = document.getElementById("contatos");
   const contactForm = document.querySelector("#contatos form");
 
-  // Set initial state for the form animation
-  contactForm.style.transform = "translateY(100%)";
+  if (contatosSection && contactForm) {
+    // Set initial state for the form animation
+    contactForm.style.transform = "translateY(100%)";
+    contactForm.style.opacity = "0";
+    contactForm.style.transition = "transform 0.8s ease, opacity 0.8s ease";
+    
+    contatosSection.style.opacity = "0";
+    contatosSection.style.transition = "opacity 0.8s ease";
 
-  // Animação de surgimento (fade in)
-  const contatosObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          contatosSection.style.opacity = "1";
-          contactForm.style.transform = "translateY(0)";
-          contactForm.style.opacity = "1";
-        } else {
-          contatosSection.style.opacity = "0";
-          contactForm.style.transform = "translateY(100%)";
-          contactForm.style.opacity = "0";
-        }
-      });
-    },
-    { threshold: 0.2 } // A animação começa quando 20% da seção estiver visível
-  );
-  contatosObserver.observe(contatosSection);
-
-  // Inicializa o sistema de formulário
-  new ContactForm();
+    const contatosObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            contatosSection.style.opacity = "1";
+            contactForm.style.transform = "translateY(0)";
+            contactForm.style.opacity = "1";
+          } else {
+            contatosSection.style.opacity = "0";
+            contactForm.style.transform = "translateY(100%)";
+            contactForm.style.opacity = "0";
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    contatosObserver.observe(contatosSection);
+  }
 
   // --- Animação de cor do Header ---
   const header = document.querySelector("header");
   const sections = document.querySelectorAll("main section[id]");
 
-  // Mapeia o ID da seção para a cor desejada do header
-  const sectionColors = {
-    home: "var(--primary-color)",
-    sobre: "var(--background-dark)",
-    projetos: "var(--background-light)",
-    contatos: "var(--background-dark)",
-  };
+  if (header && sections.length > 0) {
+    // Mapeia o ID da seção para a cor desejada do header
+    const sectionColors = {
+      home: "var(--primary-color)",
+      sobre: "var(--background-dark)",
+      projetos: "var(--background-light)",
+      contatos: "var(--background-dark)",
+    };
 
-  const headerObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          const color = sectionColors[sectionId];
-          if (color) {
-            header.style.backgroundColor = color;
+    const headerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            const color = sectionColors[sectionId];
+            if (color) {
+              header.style.backgroundColor = color;
+              header.style.transition = "background-color 0.3s ease";
+            }
           }
-        }
-      });
-    },
-    {
-      rootMargin: "-80px 0px 0px 0px", // O header tem 80px, então a "colisão" acontece logo abaixo dele
-      threshold: 0.1, // Pelo menos 10% da seção precisa estar visível
-    }
-  );
+        });
+      },
+      {
+        rootMargin: "-80px 0px 0px 0px",
+        threshold: 0.1,
+      }
+    );
 
-  // Observa cada uma das seções
-  sections.forEach((section) => headerObserver.observe(section));
+    // Observa cada uma das seções
+    sections.forEach((section) => headerObserver.observe(section));
+  }
 
   // --- Lógica de Tradução ---
   const langButtons = document.querySelectorAll(".lang-btn");
@@ -277,7 +309,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProjects(lang);
     // Atualiza o botão ativo
     langButtons.forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+    const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+    }
     // Salva a preferência no localStorage
     localStorage.setItem('language', lang);
   };
@@ -299,40 +334,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.querySelector(".close-modal");
   const viewCertButtons = document.querySelectorAll(".btn-certificado");
 
-  viewCertButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const imgSrc = button.getAttribute("data-src");
-      if (imgSrc) {
-        modalImg.src = imgSrc;
-        modal.classList.add("active");
+  if (modal && modalImg && closeModal) {
+    viewCertButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const imgSrc = button.getAttribute("data-src");
+        if (imgSrc) {
+          modalImg.src = imgSrc;
+          modalImg.alt = translations[savedLang].modalCertAlt;
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden"; // Previne scroll no body
+        }
+      });
+    });
+
+    // Função para fechar o modal
+    const closeCertModal = () => {
+      modal.classList.remove("active");
+      document.body.style.overflow = ""; // Restaura scroll
+    };
+
+    // Fecha ao clicar no 'X'
+    closeModal.addEventListener("click", closeCertModal);
+
+    // Fecha ao clicar fora da imagem
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeCertModal();
       }
     });
-  });
 
-  // Função para fechar o modal
-  const closeCertModal = () => {
-    modal.classList.remove("active");
-    modalImg.src = ""; // Limpa a imagem para evitar que a antiga apareça rapidamente
-  };
+    // Fecha com a tecla ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeCertModal();
+      }
+    });
+  }
 
-  // Fecha ao clicar no 'X'
-  closeModal.addEventListener("click", closeCertModal);
-
-  // Fecha ao clicar fora da imagem
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeCertModal();
-    }
-  });
+  // Inicializa o sistema de formulário
+  if (document.getElementById("contactForm")) {
+    new ContactForm();
+  }
 });
 
 // Sistema de envio de email com Formspree
 class ContactForm {
   constructor() {
     this.form = document.getElementById("contactForm");
+    if (!this.form) return;
+
     this.submitBtn = document.getElementById("submitBtn");
-    this.btnText = this.submitBtn.querySelector(".btn-text");
-    this.loadingSpinner = this.submitBtn.querySelector(".loading-spinner");
+    this.btnText = this.submitBtn?.querySelector(".btn-text");
+    this.loadingSpinner = this.submitBtn?.querySelector(".loading-spinner");
     this.successMessage = document.getElementById("successMessage");
     this.errorMessage = document.getElementById("errorMessage");
 
@@ -404,6 +457,7 @@ class ContactForm {
     if (!errorElement || !errorElement.classList.contains("field-error")) {
       errorElement = document.createElement("span");
       errorElement.className = "field-error";
+      errorElement.style.cssText = "color: #e74c3c; font-size: 0.8rem; margin-top: 0.25rem; display: block;";
       field.parentNode.insertBefore(errorElement, field.nextSibling);
     }
     errorElement.textContent = message;
@@ -447,7 +501,6 @@ class ContactForm {
 
       // Envia para o Formspree
       const response = await fetch("https://formspree.io/f/xkgpngla", {
-        // <-- SUBSTITUA PELO SEU HASH/ENDPOINT DO FORMSPREE
         method: "POST",
         body: formData,
         headers: {
@@ -470,6 +523,8 @@ class ContactForm {
   }
 
   setLoading(loading) {
+    if (!this.submitBtn || !this.btnText || !this.loadingSpinner) return;
+    
     if (loading) {
       this.btnText.style.display = "none";
       this.loadingSpinner.style.display = "block";
@@ -482,6 +537,8 @@ class ContactForm {
   }
 
   showSuccess() {
+    if (!this.successMessage || !this.errorMessage) return;
+    
     this.successMessage.style.display = "flex";
     this.errorMessage.style.display = "none";
 
@@ -491,6 +548,8 @@ class ContactForm {
   }
 
   showError() {
+    if (!this.successMessage || !this.errorMessage) return;
+    
     this.successMessage.style.display = "none";
     this.errorMessage.style.display = "flex";
 
@@ -500,7 +559,7 @@ class ContactForm {
   }
 
   hideMessages() {
-    this.successMessage.style.display = "none";
-    this.errorMessage.style.display = "none";
+    if (this.successMessage) this.successMessage.style.display = "none";
+    if (this.errorMessage) this.errorMessage.style.display = "none";
   }
 }
