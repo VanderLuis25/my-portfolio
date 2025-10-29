@@ -29,7 +29,7 @@ header {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 999; /* Aumenta a prioridade de empilhamento do header */
   transition: background-color 0.5s ease;
   padding: 0 20px;
 }
@@ -247,8 +247,8 @@ header .language-selector {
 }
 
 .sobre {
+  margin-top: 180px;
   width: 100%;
-  padding: 100px 20px;
   display: flex;
   flex-direction: column; /* Alinha o H1 e o container verticalmente */
   align-items: center;
@@ -276,6 +276,7 @@ header .language-selector {
   color: var(--text-dark);
   text-shadow: 0px 4px 28px rgba(0, 223, 252, 0.445);
   text-align: center;
+  padding: 45px 0;
 }
 .sobre-content h2 {
   font-size: 28px;
@@ -792,22 +793,18 @@ footer p {
     display: block; /* Mostra o ícone do menu */
   }
 
-  .logo h1 {
-    display: none; /* Oculta o texto do logo em telas menores */
-  }
-
   .navbar {
     position: absolute;
     top: 100%; /* Posiciona abaixo do header */
     left: -100%; /* Começa fora da tela */
-    width: 100%;
-    background-color: var(--primary-color);
+    width: 50%;
+    height: 100vh;
+    background-color: #014044;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 8px;
     transition: left 0.4s ease;
-    z-index: 100;
+    z-index: 1000; /* Garante que o menu fique acima de todo o resto */
   }
 
   .navbar.active {
@@ -815,7 +812,7 @@ footer p {
   }
 
   .navbar a {
-    font-size: 18px;
+    font-size: 28px;
   }
 
   .home-content h1 {
@@ -851,6 +848,9 @@ footer p {
 
 /* Tablets (até 992px) */
 @media (max-width: 992px) {
+  header {
+    padding: 0 20px;
+  }
   .home-content h1 {
     font-size: 36px;
   }
@@ -948,8 +948,12 @@ footer p {
 /* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
-    height: 75px;
-    padding: 0 15px;
+    header {
+      display: flex;
+      justify-content: space-between; /* Mantém o logo à esquerda e o menu à direita */
+      align-items: center; /* Alinha verticalmente */
+      width: 100%;
+    }
   }
 
   .logo img {
