@@ -33,7 +33,6 @@ header {
   z-index: 999;
   transition: background-color 0.5s ease;
   padding: 0 20px;
-  overflow-x: hidden; /* ✅ evita que o conteúdo interno ultrapasse */
 }
 header .logo {
   display: flex;
@@ -802,7 +801,7 @@ footer p {
   }
 
   .navbar {
-    position: absolute;
+    position: fixed; /* Garante que o menu seja relativo à janela de visualização */
     top: 100%; /* Posiciona abaixo do header */
     left: -100%; /* Começa fora da tela */
     width: 50%;
