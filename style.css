@@ -802,7 +802,7 @@ footer p {
 
   .navbar {
     position: fixed; /* Garante que o menu seja relativo à janela de visualização */
-    top: 100%; /* Posiciona abaixo do header */
+    top: 85px; /* Alinha o topo do menu com a parte inferior do header (que tem 85px de altura) */
     left: -100%; /* Começa fora da tela */
     width: 50%;
     height: 100vh;
