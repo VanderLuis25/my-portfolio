@@ -19,6 +19,7 @@
 body {
   background-color: #000000;
   overflow-x: hidden; /* ✅ impede rolagem lateral */
+  overflow: none;
 }
 
 header {
@@ -852,6 +853,17 @@ footer p {
 
 /* Tablets (até 992px) */
 @media (max-width: 992px) {
+  header{
+    width: 100%;
+    max-width: 100vw;
+    height: 75px;
+  }
+  .navbar {
+    width: 60%;
+
+
+  }
+
   .home-content h1 {
     font-size: 36px;
   }
@@ -872,6 +884,9 @@ footer p {
 /* Celulares (até 768px) */
 @media (max-width: 768px) {
   header {
+    width: 100%;
+    max-width: 100vw;
+    height: 75px;
     padding: 0 20px;
     justify-content: center; /* Centraliza os itens no header */
     gap: 20px; /* Adiciona um espaço entre o logo e os controles */
@@ -929,6 +944,19 @@ footer p {
 
 /* Celulares menores (até 576px) */
 @media (max-width: 576px) {
+
+  header{
+     width: 100%;
+    max-width: 100vw;
+    height: 75px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  
+  }
   .home-content h1,
   #contatos h1 {
     font-size: 28px;
@@ -951,6 +979,50 @@ footer p {
 /* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
+     width: 100%;
+    max-width: 100vw;
+    height: 75px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .home-content h1,
+  #contatos h1,
+  .sobre h1,
+  #projetos h1,
+  .certificados h1 {
+    font-size: 24px;
+  }
+
+  .home-content h2 {
+    font-size: 16px;
+  }
+
+  .home-content h5 {
+    font-size: 13px;
+  }
+
+  .sobre-content p,
+  #contatos p {
+    font-size: 15px;
+  }
+
+  .foto-perfil img {
+    width: 200px;
+  }
+
+  .card {
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+  }
+}
+@media (max-width: 320px) {
+  header {
+    width: 100%;
+    max-width: 100vw; 
     height: 75px;
     padding: 0 15px;
   }
