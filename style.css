@@ -18,20 +18,22 @@
 
 body {
   background-color: #f70707;
+  overflow-x: hidden; /* ✅ impede rolagem lateral */
 }
 
 header {
   width: 100%;
+  max-width: 100vw; /* ✅ garante que não ultrapasse a largura da tela */
   height: 85px;
   background-color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 999; /* Aumenta a prioridade de empilhamento do header */
+  z-index: 999;
   transition: background-color 0.5s ease;
   padding: 0 20px;
-  overflow-x: hidden
+  overflow-x: hidden; /* ✅ evita que o conteúdo interno ultrapasse */
 }
 header .logo {
   display: flex;
