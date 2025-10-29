@@ -86,24 +86,33 @@ header .logo {
   transition: all 0.2s ease;
   white-space: nowrap;
 }
-header .language-selector button {
+header .language-selector {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
   cursor: pointer;
+  gap: 8px;
+}
+.language-selector button {
+  width: 50px;
+  height: 30px;
   margin: 5px;
   border-radius: 100px;
   background-color: #00eeff;
   color: #ffffff;
   border-color: #00eeff;
   box-shadow: 0px 0px 10px rgb(0, 255, 255);
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-header button:active {
+
+.language-selector button:active {
   border-color: #000000;
   color: #000000;
   box-shadow: none;
 }
+
 /* Ícone do Menu Hambúrguer (inicialmente escondido em telas grandes) */
 #menu-icon {
   display: none;
@@ -205,7 +214,8 @@ header button:active {
 }
 
 .home-content h1 {
-  font-size: 50px;
+  font-weight: 800;
+  font-size: 60px;
   color: var(--text-dark);
   text-shadow: 0px 4px 24px rgba(0, 223, 252, 0.445);
   white-space: nowrap;
@@ -213,6 +223,7 @@ header button:active {
   border-right: none;
   width: 0;
   animation: typing 4s steps(20, end) infinite alternate;
+  margin-top: 100px;
 }
 
 @keyframes typing {
@@ -225,16 +236,18 @@ header button:active {
 }
 
 .home-content h2 {
-  font-size: 30px;
+  font-size: 35px;
   color: var(--text-dark);
 }
 
 .home-content h5 {
-  font-size: 20px;
+  font-size: 25px;
   color: var(--text-dark);
+  text-align: center;
 }
 
 .sobre {
+  width: 100%;
   padding: 100px 20px;
   display: flex;
   flex-direction: column; /* Alinha o H1 e o container verticalmente */
@@ -316,6 +329,7 @@ img:hover {
 }
 /* Seção de Projetos */
 #projetos {
+  width: 100%;
   background-color: var(--primary-color);
   padding: 100px 20px;
   display: flex;
@@ -397,8 +411,9 @@ img:hover {
 
 /* Seção de Contatos */
 #contatos {
+  width: 100%;
   background-color: var(--primary-color);
-  padding: 100px 20px;
+  padding: 100px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -424,14 +439,12 @@ img:hover {
 }
 
 .social-links {
-  position: fixed; /* Fixa a posição na tela */
-  top: 50%; /* Centraliza verticalmente */
-  left: 20px; /* Distância da esquerda */
-  transform: translateY(-50%); /* Ajuste fino para centralização vertical */
   display: flex;
-  flex-direction: column; /* Empilha os ícones verticalmente */
+  flex-direction: row; /* Ícones lado a lado */
+  justify-content: center;
   gap: 15px; /* Espaço entre os ícones */
   z-index: 10; /* Garante que fique acima de outros elementos */
+  margin-top: 20px; /* Espaço acima dos ícones */
 }
 
 .social-icon {
@@ -624,7 +637,6 @@ footer p {
   color: white;
   text-align: center;
   border-radius: 20px;
-  margin-top: 80px;
 }
 
 .certificados h1 {
@@ -708,26 +720,6 @@ footer p {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Animação da borda de luz */
-@keyframes animateBorder {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Nova animação para mudar a cor da bolinha */
-@keyframes animateColor {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
 /* Estilos do Modal de Certificado */
 .modal {
   display: none; /* Escondido por padrão */
@@ -793,14 +785,6 @@ footer p {
 /* === RESPONSIVIDADE === */
 
 /* Telas grandes (ex: Desktops > 1200px) */
-@media (min-width: 1201px) {
-  header,
-  main,
-  footer {
-    padding-left: calc(5% + 80px); /* Adiciona espaço para os ícones sociais */
-    padding-right: 5%;
-  }
-}
 
 /* Tablets e Desktops pequenos (até 1200px) */
 @media (max-width: 1200px) {
@@ -854,28 +838,14 @@ footer p {
     text-align: center;
   }
 
-  #contatos .input-group {
-    flex-direction: column;
-  }
-
   /* Reposiciona os ícones sociais para o rodapé */
   .social-links {
-    position: static;
     transform: none;
     flex-direction: row;
     justify-content: center;
     width: 100%; /* Garante que o container ocupe a largura total */
     margin-top: 30px;
     padding-bottom: 20px; /* Adiciona espaço no final */
-  }
-
-  .social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .social-icon i {
-    font-size: 24px;
   }
 }
 
@@ -947,6 +917,10 @@ footer p {
   footer div {
     flex-direction: column;
     gap: 15px;
+  }
+
+  #contatos .input-group {
+    flex-direction: column;
   }
 }
 
