@@ -608,6 +608,7 @@ footer {
 footer div {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Permite que os links quebrem a linha */
   gap: 30px;
   margin-bottom: 20px;
 }
