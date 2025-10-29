@@ -32,6 +32,7 @@ header {
   z-index: 999; /* Aumenta a prioridade de empilhamento do header */
   transition: background-color 0.5s ease;
   padding: 0 20px;
+  overflow-x: hidden
 }
 header .logo {
   display: flex;
