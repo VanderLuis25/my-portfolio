@@ -948,12 +948,11 @@ footer p {
 /* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
-      display: flex;
-      justify-content: space-between; /* Mantém o logo à esquerda e o menu à direita */
-      align-items: center; /* Alinha verticalmente */
-      width: 100%;
-      gap: 10px;
-    
+    display: flex;
+    justify-content: flex-start; /* Alinha itens à esquerda */
+    align-items: center;
+    width: 100%;
+    gap: 15px; /* Espaço entre logo e controles */
   }
 
   .logo img {
