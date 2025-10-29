@@ -86,13 +86,6 @@ header .logo {
   transition: all 0.2s ease;
   white-space: nowrap;
 }
-header .language-selector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  gap: 8px;
-}
 .language-selector button {
   width: 50px;
   height: 30px;
@@ -107,12 +100,21 @@ header .language-selector {
   transition: all 0.2s ease;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .language-selector button:active {
   border-color: #000000;
   color: #000000;
   box-shadow: none;
 }
 
+header .language-selector {
+  display: flex;
+}
 /* Ícone do Menu Hambúrguer (inicialmente escondido em telas grandes) */
 #menu-icon {
   display: none;
@@ -793,6 +795,10 @@ footer p {
     display: block; /* Mostra o ícone do menu */
   }
 
+  .logo h1 {
+    display: none; /* Oculta o texto do logo em telas menores */
+  }
+
   .navbar {
     position: absolute;
     top: 100%; /* Posiciona abaixo do header */
@@ -848,9 +854,6 @@ footer p {
 
 /* Tablets (até 992px) */
 @media (max-width: 992px) {
-  header {
-    padding: 0 20px;
-  }
   .home-content h1 {
     font-size: 36px;
   }
@@ -872,6 +875,8 @@ footer p {
 @media (max-width: 768px) {
   header {
     padding: 0 20px;
+    justify-content: center; /* Centraliza os itens no header */
+    gap: 20px; /* Adiciona um espaço entre o logo e os controles */
   }
 
   .logo img {
@@ -948,17 +953,13 @@ footer p {
 /* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
-    display: flex;
-    justify-content: flex-start; /* Alinha itens à esquerda */
-    align-items: center;
-    width: 100%;
-    gap: 15px; /* Espaço entre logo e controles */
+    height: 75px;
+    padding: 0 15px;
   }
 
   .logo img {
     width: 50px;
     height: 50px;
-    margin-left: 0;
   }
 
   .home-content h1,
