@@ -18,13 +18,37 @@
 
 body {
   background-color: #000000;
-  overflow-x: hidden; /* ✅ impede rolagem lateral */
-  overflow: none;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
+img,
+.card img,
+.foto-perfil img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+header,
+.home,
+#projetos,
+#container-projetos,
+.certificados,
+.certificados-container,
+.sobre,
+.sobre-container,
+#contatos,
+footer,
+.card {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Cabeçalho */
 header {
   width: 100%;
-  max-width: 100vw; /* ✅ garante que não ultrapasse a largura da tela */
+  max-width: 100vw;
   height: 85px;
   background-color: var(--primary-color);
   display: flex;
@@ -35,6 +59,7 @@ header {
   transition: background-color 0.5s ease;
   padding: 0 20px;
 }
+
 header .logo {
   display: flex;
   align-items: center;
@@ -63,12 +88,15 @@ header .logo {
 .logo span {
   color: #00eeff;
 }
+
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 2vw, 30px); /* Responsive gap */
+  gap: clamp(10px, 2vw, 30px);
   flex-shrink: 1;
+  max-width: 100vw;
 }
 
 .navbar a {
@@ -87,6 +115,8 @@ header .logo {
   transition: all 0.2s ease;
   white-space: nowrap;
 }
+
+/* Botão de idioma */
 .language-selector button {
   width: 50px;
   height: 30px;
@@ -116,7 +146,6 @@ header .logo {
 header .language-selector {
   display: flex;
 }
-/* Ícone do Menu Hambúrguer (inicialmente escondido em telas grandes) */
 #menu-icon {
   display: none;
   font-size: 28px;
@@ -129,6 +158,7 @@ header .language-selector {
   text-shadow: 0px 1px 28px rgba(0, 247, 255, 0.979);
 }
 
+/* Home */
 #home {
   background-color: rgb(0, 0, 0);
   width: 100%;
@@ -136,18 +166,17 @@ header .language-selector {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Necessário para posicionar as linhas de fundo */
-  overflow: hidden; /* Garante que as linhas não saiam da seção */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Animação de linhas no fundo da seção Home */
 .lines-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Coloca as linhas atrás do conteúdo */
+  z-index: 0;
 }
 
 .line {
@@ -156,43 +185,38 @@ header .language-selector {
   transform-origin: right center;
   animation: draw-line 4s ease-out infinite alternate;
 }
-
 .line-1 {
   top: 50%;
   right: 0;
   background: linear-gradient(to left, rgba(0, 255, 255, 0.7), transparent);
-  height: 4px; /* Linha mais grossa */
+  height: 4px;
   transform: translateY(-150px) rotate(-25deg);
 }
-
 .line-2 {
   top: 50%;
   right: 0;
   background: linear-gradient(to left, rgba(0, 255, 255, 0.7), transparent);
-  height: 1px; /* Linha mais fina */
+  height: 1px;
   transform: translateY(150px) rotate(25deg);
-  animation-delay: 0.2s; /* Pequeno atraso para um efeito mais dinâmico */
+  animation-delay: 0.2s;
 }
-
 .line-3 {
   top: 50%;
   left: 0;
   background: linear-gradient(to right, rgba(0, 255, 255, 0.7), transparent);
-  height: 4px; /* Linha mais grossa */
-  transform: translateY(-150px) rotate(25deg); /* Espelha a rotação da line-1 */
-  transform-origin: left center; /* Anima da esquerda para a direita */
+  height: 4px;
+  transform: translateY(-150px) rotate(25deg);
+  transform-origin: left center;
 }
-
 .line-4 {
   top: 50%;
   left: 0;
   background: linear-gradient(to right, rgba(0, 255, 255, 0.7), transparent);
-  height: 1px; /* Linha mais fina */
-  transform: translateY(150px) rotate(-25deg); /* Espelha a rotação da line-2 */
-  transform-origin: left center; /* Anima da esquerda para a direita */
-  animation-delay: 0.2s; /* Pequeno atraso para um efeito mais dinâmico */
+  height: 1px;
+  transform: translateY(150px) rotate(-25deg);
+  transform-origin: left center;
+  animation-delay: 0.2s;
 }
-
 @keyframes draw-line {
   from {
     width: 0;
@@ -211,10 +235,10 @@ header .language-selector {
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  z-index: 1; /* Garante que o texto fique na frente das linhas */
+  z-index: 1;
   width: 100%;
+  max-width: 100vw;
 }
-
 .home-content h1 {
   font-weight: 800;
   font-size: 60px;
@@ -227,7 +251,6 @@ header .language-selector {
   animation: typing 4s steps(20, end) infinite alternate;
   margin-top: 100px;
 }
-
 @keyframes typing {
   from {
     width: 0;
@@ -236,39 +259,36 @@ header .language-selector {
     width: 100%;
   }
 }
-
 .home-content h2 {
   font-size: 35px;
   color: var(--text-dark);
 }
-
 .home-content h5 {
   font-size: 25px;
   color: var(--text-dark);
   text-align: center;
 }
-
 .sobre {
   margin-top: 180px;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Alinha o H1 e o container verticalmente */
+  flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaço entre o H1 e o container */
+  gap: 40px;
   min-height: 100vh;
+  max-width: 100vw;
 }
-
 .sobre-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
   width: 100%;
- 
+  max-width: 100vw;
 }
-
 .sobre-content {
   max-width: 600px;
+  width: 100%;
   transition: transform 1s ease-out, opacity 1s ease-out;
   transform: translateX(-100%);
   opacity: 0;
@@ -295,6 +315,7 @@ header .language-selector {
   transform: translateX(100%);
   opacity: 0;
   border: none;
+  max-width: 100vw;
 }
 .foto-perfil img {
   width: 300px;
@@ -305,6 +326,7 @@ header .language-selector {
     0px 5px 60px 20px rgba(4, 202, 209, 0.863),
     5px 10px 30px rgba(7, 247, 255, 0.527);
   cursor: pointer;
+  max-width: 100vw;
 }
 img:hover {
   transform: scale(1.1);
@@ -330,6 +352,7 @@ img:hover {
   transform: scale(0.6);
   background-color: #014044;
 }
+
 /* Seção de Projetos */
 #projetos {
   width: 100%;
@@ -340,31 +363,30 @@ img:hover {
   align-items: center;
   gap: 40px;
   min-height: 100vh;
+  max-width: 100vw;
 }
-
 #projetos h1 {
   font-size: 40px;
   color: var(--text-dark);
   text-shadow: 0px 4px 24px rgba(0, 223, 252, 0.445);
 }
-
 #container-projetos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
   width: 100%;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Adiciona transição suave */
-  transform: translateX(-100%); /* Começa fora da tela */
+  max-width: 100vw;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transform: translateX(-100%);
 }
-
-/* Estilo do Card Individual */
 .card {
   background-color: var(--background-light);
   border: none;
   border-radius: 15px;
   overflow: hidden;
   width: 280px;
+  max-width: 96vw;
   height: 380px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -372,29 +394,29 @@ img:hover {
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-12px);
   box-shadow: 0 8px 28px rgba(0, 238, 255, 0.3);
 }
+
+/* Card imagens */
 .card img {
   width: 100%;
   height: 280px;
+  object-fit: cover;
+  max-width: 100%;
 }
-
 .card h3 {
   color: var(--text-dark);
   font-size: 24px;
   padding: 15px 20px 5px 20px;
 }
-
 .card p {
   color: var(--text-light);
   font-size: 16px;
   padding: 0 20px 20px 20px;
-  flex-grow: 1; /* Faz o parágrafo ocupar o espaço disponível, alinhando os botões */
+  flex-grow: 1;
 }
-
 .card a {
   background-color: var(--secondary-color);
   color: var(--primary-color);
@@ -405,13 +427,12 @@ img:hover {
   font-size: 18px;
   transition: background-color 0.3s ease;
 }
-
 .card a:hover {
-  background-color: #0dc7d4; /* Um tom um pouco mais escuro para o hover */
+  background-color: #0dc7d4;
   color: var(--text-light);
 }
 
-/* Seção de Contatos */
+/* Contatos */
 #contatos {
   width: 100%;
   background-color: var(--primary-color);
@@ -423,32 +444,31 @@ img:hover {
   text-align: center;
   gap: 25px;
   min-height: 70vh;
-  transition: opacity 1s ease-out; /* Transição para animação JS */
-  opacity: 0; /* Começa invisível para animação JS */
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  max-width: 100vw;
 }
-
 #contatos h1 {
   font-size: 40px;
   color: var(--text-dark);
   text-shadow: 0px 4px 24px rgba(0, 223, 252, 0.445);
 }
-
 #contatos p {
   font-size: 18px;
   color: var(--text-light);
   max-width: 600px;
   line-height: 1.6;
 }
-
 .social-links {
   display: flex;
-  flex-direction: row; /* Ícones lado a lado */
+  flex-direction: row;
   justify-content: center;
-  gap: 15px; /* Espaço entre os ícones */
-  z-index: 10; /* Garante que fique acima de outros elementos */
-  margin-top: 20px; /* Espaço acima dos ícones */
+  gap: 15px;
+  z-index: 10;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100vw;
 }
-
 .social-icon {
   display: flex;
   align-items: center;
@@ -460,24 +480,21 @@ img:hover {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
 .social-icon i {
   font-size: 28px;
   color: var(--secondary-color);
   transition: color 0.3s ease;
 }
-
 .social-icon:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(0, 238, 255, 0.7);
   background-color: var(--secondary-color);
 }
-
 .social-icon:hover i {
   color: var(--primary-color);
 }
 
-/* Estilos do Formulário de Contato */
+/* Formulário de contato */
 #contatos form {
   display: flex;
   flex-direction: column;
@@ -491,6 +508,7 @@ img:hover {
 #contatos .input-group {
   display: flex;
   gap: 15px;
+  max-width: 100vw;
 }
 
 #contatos input,
@@ -503,6 +521,7 @@ img:hover {
   color: var(--text-light);
   font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100vw;
 }
 
 #contatos input:focus,
@@ -511,13 +530,11 @@ img:hover {
   border-color: var(--secondary-color);
   box-shadow: 0 0 5px rgba(0, 238, 255, 0.3);
 }
-
 #contatos input::placeholder,
 #contatos textarea::placeholder {
   color: var(--text-light);
   opacity: 0.7;
 }
-
 #contatos button {
   padding: 12px;
   border: none;
@@ -531,17 +548,13 @@ img:hover {
   position: relative;
   height: 50px;
 }
-
 #contatos button:hover:not(:disabled) {
   background-color: #0dc7d4;
 }
-
 #contatos button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-
-/* Loading spinner */
 .loading-spinner {
   width: 20px;
   height: 20px;
@@ -551,7 +564,6 @@ img:hover {
   animation: spin 1s linear infinite;
   margin: 0 auto;
 }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -560,8 +572,6 @@ img:hover {
     transform: rotate(360deg);
   }
 }
-
-/* Mensagens de feedback */
 .message {
   padding: 15px;
   border-radius: 5px;
@@ -573,20 +583,16 @@ img:hover {
   justify-content: center;
   gap: 10px;
 }
-
 .success-message {
   background: #d4edda;
   color: #155724;
   border: 1px solid #c3e6cb;
 }
-
 .error-message {
   background: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
-
-/* Mensagens de erro dos campos */
 .field-error {
   color: #e74c3c !important;
   font-size: 14px !important;
@@ -594,40 +600,37 @@ img:hover {
   display: block !important;
   text-align: left;
 }
-
-/* Footer */
 footer {
   background-color: var(--primary-color);
   padding: 40px 20px;
   text-align: center;
   border-top: 1px solid var(--background-light);
+  max-width: 100vw;
 }
-
 footer div {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Permite que os links quebrem a linha */
+  flex-wrap: wrap;
   gap: 30px;
   margin-bottom: 20px;
+  max-width: 100vw;
 }
-
 footer a {
   text-decoration: none;
   color: var(--text-light);
   font-size: 16px;
   transition: color 0.3s ease;
 }
-
 footer a:hover {
   color: var(--secondary-color);
 }
-
 footer p {
   color: var(--text-light);
   font-size: 14px;
   opacity: 0.7;
 }
-/* Seção Certificados */
+
+/* Certificados */
 .certificados {
   padding: 80px 20px;
   background: linear-gradient(
@@ -640,8 +643,8 @@ footer p {
   color: white;
   text-align: center;
   border-radius: 20px;
+  max-width: 100vw;
 }
-
 .certificados h1 {
   font-size: 2.8rem;
   margin-bottom: 50px;
@@ -649,14 +652,13 @@ footer p {
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 .certificados-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   margin: 0 auto;
+  max-width: 100vw;
 }
-
 .certificado-card {
   background: rgba(39, 38, 38, 0.397);
   backdrop-filter: blur(10px);
@@ -664,17 +666,15 @@ footer p {
   padding: 30px;
   text-align: center;
   position: relative;
+  max-width: 95vw;
 }
-
 .certificado-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
-
 .certificado-header {
   margin-bottom: 20px;
 }
-
 .certificado-header i {
   font-size: 3rem;
   color: #000000;
@@ -684,24 +684,20 @@ footer p {
   border-radius: 50%;
   padding: 10px;
 }
-
 .certificado-header i:hover {
   color: #70eff8;
   box-shadow: 0 15px 30px #00eeff;
 }
-
 .certificado-header h3 {
   font-size: 1.5rem;
   margin: 10px 0;
   color: white;
 }
-
 .certificado-content p {
   margin: 10px 0;
   color: #f0f0f0;
   font-size: 0.95rem;
 }
-
 .btn-certificado {
   display: inline-block;
   margin-top: 15px;
@@ -715,16 +711,15 @@ footer p {
   border: none;
   cursor: pointer;
 }
-
 .btn-certificado:hover {
   background: #89eaf1;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Estilos do Modal de Certificado */
+/* Modal */
 .modal {
-  display: none; /* Escondido por padrão */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -736,11 +731,9 @@ footer p {
   justify-content: center;
   align-items: center;
 }
-
 .modal.active {
-  display: flex; /* Mostra o modal quando a classe 'active' é adicionada */
+  display: flex;
 }
-
 .modal-content {
   position: relative;
   margin: auto;
@@ -749,14 +742,12 @@ footer p {
   max-height: 90vh;
   animation: zoomIn 0.4s ease-out;
 }
-
 .modal-content img {
   width: 100%;
   height: auto;
   max-height: 85vh;
   object-fit: contain;
 }
-
 .close-modal {
   position: absolute;
   top: -10px;
@@ -766,14 +757,12 @@ footer p {
   font-weight: bold;
   transition: color 0.3s ease;
 }
-
 .close-modal:hover,
 .close-modal:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
 @keyframes zoomIn {
   from {
     transform: scale(0.5);
@@ -784,212 +773,187 @@ footer p {
     opacity: 1;
   }
 }
+
 /* === RESPONSIVIDADE === */
-
-/* Telas grandes (ex: Desktops > 1200px) */
-
-/* Tablets e Desktops pequenos (até 1200px) */
 @media (max-width: 1200px) {
   #menu-icon {
-    display: block; /* Mostra o ícone do menu */
+    display: block;
   }
-
   .logo h1 {
-    display: none; /* Oculta o texto do logo em telas menores */
+    display: none;
   }
-
   .navbar {
-    position: fixed; /* Garante que o menu seja relativo à janela de visualização */
-    top: 85px; /* Alinha o topo do menu com a parte inferior do header (que tem 85px de altura) */
-    left: -100%; /* Começa fora da tela */
-    width: 50%;
+    position: fixed;
+    top: 85px;
+    left: -100%;
+    width: 50vw;
+    min-width: 200px;
+    max-width: 100vw;
     height: 100vh;
     background-color: #014044;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     transition: left 0.4s ease;
-    z-index: 1000; /* Garante que o menu fique acima de todo o resto */
+    z-index: 1000;
   }
-
   .navbar.active {
-    left: 0; /* Traz o menu para a tela */
+    left: 0;
   }
-
   .navbar a {
     font-size: 28px;
   }
-
   .home-content h1 {
     font-size: 40px;
   }
-
   .home-content h2 {
     font-size: 24px;
   }
-
   .home-content h5 {
     font-size: 16px;
     padding: 0 20px;
     text-align: center;
   }
-
   .sobre-container {
-    flex-direction: column;
     flex-direction: column-reverse;
     text-align: center;
+    max-width: 100vw;
   }
-
-  /* Reposiciona os ícones sociais para o rodapé */
   .social-links {
-    transform: none;
     flex-direction: row;
     justify-content: center;
-    width: 100%; /* Garante que o container ocupe a largura total */
+    width: 100%;
     margin-top: 30px;
-    padding-bottom: 20px; /* Adiciona espaço no final */
+    padding-bottom: 20px;
+    max-width: 100vw;
+  }
+  .certificados-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 }
-
-/* Tablets (até 992px) */
 @media (max-width: 992px) {
-  header{
+  header {
     width: 100%;
     max-width: 100vw;
     height: 75px;
   }
   .navbar {
-    width: 60%;
-
-
+    width: 60vw;
+    max-width: 100vw;
   }
-
   .home-content h1 {
     font-size: 36px;
   }
-
   .home-content h2 {
     font-size: 22px;
   }
-
   .sobre-content {
-    max-width: 90%;
+    max-width: 100vw;
+    padding: 0 5vw;
   }
-
   .foto-perfil img {
     width: 280px;
   }
+  .certificados-container {
+    grid-template-columns: 1fr;
+  }
 }
-
-/* Celulares (até 768px) */
 @media (max-width: 768px) {
   header {
     width: 100%;
     max-width: 100vw;
     height: 75px;
     padding: 0 20px;
-    justify-content: center; /* Centraliza os itens no header */
-    gap: 20px; /* Adiciona um espaço entre o logo e os controles */
+    justify-content: center;
+    gap: 20px;
   }
-
   .logo img {
     width: 60px;
     height: 60px;
+    max-width: 100vw;
   }
-
   .logo h1 {
     display: none;
   }
-
   .home-content h1 {
     animation: none;
     width: auto;
     border: none;
   }
-
   .home-content h2 {
     font-size: 20px;
   }
-
   .home-content h5 {
     font-size: 14px;
   }
-
   .sobre-container {
     gap: 30px;
   }
-
   .foto-perfil img {
     width: 250px;
   }
-
   .certificados-container {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
   .certificado-card {
     padding: 20px;
   }
-
   footer div {
     flex-direction: column;
     gap: 15px;
   }
-
   #contatos .input-group {
     flex-direction: column;
   }
+  .card {
+    width: 95vw;
+    max-width: 300px;
+  }
 }
-
-/* Celulares menores (até 576px) */
 @media (max-width: 576px) {
-
-  header{
-     width: 100%;
+  header {
+    width: 100%;
     max-width: 100vw;
     height: 75px;
     padding: 0 15px;
   }
-
   .logo img {
     width: 50px;
     height: 50px;
-  
   }
   .home-content h1,
   #contatos h1 {
     font-size: 28px;
   }
-
   .home-content h2 {
     font-size: 18px;
   }
-
   .card {
-    width: 90%;
+    width: 98vw;
     max-width: 300px;
   }
-
   #contatos p {
     font-size: 16px;
   }
+  .certificados-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+  }
 }
-
-/* Celulares muito pequenos (até 480px) */
 @media (max-width: 480px) {
   header {
-     width: 100%;
+    width: 100%;
     max-width: 100vw;
     height: 75px;
     padding: 0 15px;
   }
-
   .logo img {
     width: 50px;
     height: 50px;
   }
-
   .home-content h1,
   #contatos h1,
   .sobre h1,
@@ -997,41 +961,40 @@ footer p {
   .certificados h1 {
     font-size: 24px;
   }
-
   .home-content h2 {
     font-size: 16px;
   }
-
   .home-content h5 {
     font-size: 13px;
   }
-
   .sobre-content p,
   #contatos p {
     font-size: 15px;
   }
-
   .foto-perfil img {
     width: 200px;
   }
-
   .card {
-    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    width: 100vw;
+    max-width: 300px;
+    min-width: 160px;
+    height: auto;
+  }
+  .sobre-content {
+    max-width: 98vw;
   }
 }
 @media (max-width: 320px) {
   header {
     width: 100%;
-    max-width: 100vw; 
+    max-width: 100vw;
     height: 75px;
     padding: 0 15px;
   }
-
   .logo img {
     width: 50px;
     height: 50px;
   }
-
   .home-content h1,
   #contatos h1,
   .sobre h1,
@@ -1039,25 +1002,25 @@ footer p {
   .certificados h1 {
     font-size: 24px;
   }
-
   .home-content h2 {
     font-size: 16px;
   }
-
   .home-content h5 {
     font-size: 13px;
   }
-
   .sobre-content p,
   #contatos p {
     font-size: 15px;
   }
-
   .foto-perfil img {
     width: 200px;
   }
-
   .card {
-    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    width: 100vw;
+    max-width: 220px;
+    height: auto;
+  }
+  .sobre-content {
+    max-width: 100vw;
   }
 }
