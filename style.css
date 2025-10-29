@@ -22,9 +22,7 @@ body {
   max-width: 100vw;
 }
 
-img,
-.card img,
-.foto-perfil img {
+img, .card img, .foto-perfil img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -218,12 +216,8 @@ header .language-selector {
   animation-delay: 0.2s;
 }
 @keyframes draw-line {
-  from {
-    width: 0;
-  }
-  to {
-    width: 60%;
-  }
+  from { width: 0; }
+  to { width: 60%; }
 }
 .home {
   width: 100%;
@@ -252,12 +246,8 @@ header .language-selector {
   margin-top: 100px;
 }
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 .home-content h2 {
   font-size: 35px;
@@ -269,7 +259,7 @@ header .language-selector {
   text-align: center;
 }
 .sobre {
-  margin-top: 180px;
+height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -285,6 +275,7 @@ header .language-selector {
   gap: 50px;
   width: 100%;
   max-width: 100vw;
+  height: 100vh;
 }
 .sobre-content {
   max-width: 600px;
@@ -298,7 +289,7 @@ header .language-selector {
   color: var(--text-dark);
   text-shadow: 0px 4px 28px rgba(0, 223, 252, 0.445);
   text-align: center;
-  padding: 45px 0;
+
 }
 .sobre-content h2 {
   font-size: 28px;
@@ -344,6 +335,7 @@ img:hover {
     0px 5px 20px rgba(4, 202, 209, 0.863);
   border: none;
   cursor: pointer;
+  margin: 15px;
 }
 .sobre-content .btn-download:hover {
   scale: 1.2;
@@ -565,12 +557,8 @@ img:hover {
   margin: 0 auto;
 }
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }
 .message {
   padding: 15px;
@@ -779,9 +767,7 @@ footer p {
   #menu-icon {
     display: block;
   }
-  .logo h1 {
-    display: none;
-  }
+  .logo h1 { display: none; }
   .navbar {
     position: fixed;
     top: 85px;
@@ -797,18 +783,10 @@ footer p {
     transition: left 0.4s ease;
     z-index: 1000;
   }
-  .navbar.active {
-    left: 0;
-  }
-  .navbar a {
-    font-size: 28px;
-  }
-  .home-content h1 {
-    font-size: 40px;
-  }
-  .home-content h2 {
-    font-size: 24px;
-  }
+  .navbar.active { left: 0; }
+  .navbar a { font-size: 28px; }
+  .home-content h1 { font-size: 40px; }
+  .home-content h2 { font-size: 24px; }
   .home-content h5 {
     font-size: 16px;
     padding: 0 20px;
@@ -833,28 +811,15 @@ footer p {
   }
 }
 @media (max-width: 992px) {
-  header {
-    width: 100%;
-    max-width: 100vw;
-    height: 75px;
-  }
-  .navbar {
-    width: 60vw;
-    max-width: 100vw;
-  }
-  .home-content h1 {
-    font-size: 36px;
-  }
-  .home-content h2 {
-    font-size: 22px;
-  }
+  header { width: 100%; max-width: 100vw; height: 75px; }
+  .navbar { width: 60vw; max-width: 100vw; }
+  .home-content h1 { font-size: 36px; }
+  .home-content h2 { font-size: 22px; }
   .sobre-content {
     max-width: 100vw;
     padding: 0 5vw;
   }
-  .foto-perfil img {
-    width: 280px;
-  }
+  .foto-perfil img { width: 280px; }
   .certificados-container {
     grid-template-columns: 1fr;
   }
@@ -873,154 +838,68 @@ footer p {
     height: 60px;
     max-width: 100vw;
   }
-  .logo h1 {
-    display: none;
-  }
-  .home-content h1 {
-    animation: none;
-    width: auto;
-    border: none;
-  }
-  .home-content h2 {
-    font-size: 20px;
-  }
-  .home-content h5 {
-    font-size: 14px;
-  }
-  .sobre-container {
-    gap: 30px;
-  }
-  .foto-perfil img {
-    width: 250px;
-  }
+  .logo h1 { display: none; }
+  .home-content h1 { animation: none; width: auto; border: none; }
+  .home-content h2 { font-size: 20px; }
+  .home-content h5 { font-size: 14px; }
+  .sobre-container { gap: 30px; }
+  .foto-perfil img { width: 250px; }
   .certificados-container {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .certificado-card {
-    padding: 20px;
-  }
-  footer div {
-    flex-direction: column;
-    gap: 15px;
-  }
-  #contatos .input-group {
-    flex-direction: column;
-  }
+  .certificado-card { padding: 20px; }
+  footer div { flex-direction: column; gap: 15px; }
+  #contatos .input-group { flex-direction: column; }
   .card {
     width: 95vw;
     max-width: 300px;
   }
 }
 @media (max-width: 576px) {
-  header {
-    width: 100%;
-    max-width: 100vw;
-    height: 75px;
-    padding: 0 15px;
-  }
-  .logo img {
-    width: 50px;
-    height: 50px;
-  }
-  .home-content h1,
-  #contatos h1 {
-    font-size: 28px;
-  }
-  .home-content h2 {
-    font-size: 18px;
-  }
+  header { width: 100%; max-width: 100vw; height: 75px; padding: 0 15px; }
+  .logo img { width: 50px; height: 50px; }
+  .home-content h1, #contatos h1 { font-size: 28px; }
+  .home-content h2 { font-size: 18px; }
   .card {
     width: 98vw;
     max-width: 300px;
   }
-  #contatos p {
-    font-size: 16px;
-  }
-  .certificados-container {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 0;
-  }
+  #contatos p { font-size: 16px; }
+  .certificados-container { grid-template-columns: 1fr; gap: 15px; padding: 0; }
 }
 @media (max-width: 480px) {
-  header {
-    width: 100%;
-    max-width: 100vw;
-    height: 75px;
-    padding: 0 15px;
-  }
-  .logo img {
-    width: 50px;
-    height: 50px;
-  }
-  .home-content h1,
-  #contatos h1,
-  .sobre h1,
-  #projetos h1,
-  .certificados h1 {
+  header { width: 100%; max-width: 100vw; height: 75px; padding: 0 15px; }
+  .logo img { width: 50px; height: 50px; }
+  .home-content h1, #contatos h1, .sobre h1, #projetos h1, .certificados h1 {
     font-size: 24px;
   }
-  .home-content h2 {
-    font-size: 16px;
-  }
-  .home-content h5 {
-    font-size: 13px;
-  }
-  .sobre-content p,
-  #contatos p {
-    font-size: 15px;
-  }
-  .foto-perfil img {
-    width: 200px;
-  }
+  .home-content h2 { font-size: 16px; }
+  .home-content h5 { font-size: 13px; }
+  .sobre-content p, #contatos p { font-size: 15px; }
+  .foto-perfil img { width: 200px; }
   .card {
     width: 100vw;
     max-width: 300px;
     min-width: 160px;
     height: auto;
   }
-  .sobre-content {
-    max-width: 98vw;
-  }
+  .sobre-content { max-width: 98vw; }
 }
 @media (max-width: 320px) {
-  header {
-    width: 100%;
-    max-width: 100vw;
-    height: 75px;
-    padding: 0 15px;
-  }
-  .logo img {
-    width: 50px;
-    height: 50px;
-  }
-  .home-content h1,
-  #contatos h1,
-  .sobre h1,
-  #projetos h1,
-  .certificados h1 {
+  header { width: 100%; max-width: 100vw; height: 75px; padding: 0 15px; }
+  .logo img { width: 50px; height: 50px; }
+  .home-content h1, #contatos h1, .sobre h1, #projetos h1, .certificados h1 {
     font-size: 24px;
   }
-  .home-content h2 {
-    font-size: 16px;
-  }
-  .home-content h5 {
-    font-size: 13px;
-  }
-  .sobre-content p,
-  #contatos p {
-    font-size: 15px;
-  }
-  .foto-perfil img {
-    width: 200px;
-  }
+  .home-content h2 { font-size: 16px; }
+  .home-content h5 { font-size: 13px; }
+  .sobre-content p, #contatos p { font-size: 15px; }
+  .foto-perfil img { width: 200px; }
   .card {
     width: 100vw;
     max-width: 220px;
     height: auto;
   }
-  .sobre-content {
-    max-width: 100vw;
-  }
+  .sobre-content { max-width: 100vw; }
 }
