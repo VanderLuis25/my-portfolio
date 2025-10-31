@@ -189,9 +189,15 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       imagem: "assets/Barbershop-New.png",
-      nome: "Barbearia Edi Rodrigues",
+      nome: "Barbershop-New",
       descricaoKey: "projectBarbershopDesc",
       link: "https://barbershop-new.vercel.app/",
+    },
+    {
+      imagem: "assets/Conversor de Moeda.png",
+      nome: "Conversor de Moeda",
+      descricaoKey: "projectconversorMoedaDesc",
+      link: "https://conversor-de-moedas-vl.vercel.app/",
     },
   ];
 
