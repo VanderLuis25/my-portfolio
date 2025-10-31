@@ -28,6 +28,8 @@ const translations = {
       "Project of a coffee shop created with HTML, CSS, and JavaScript.",
     projectBarbershopDesc:
       "Project of a barbershop created with HTML, CSS, and JavaScript.",
+    projectconversorDeMoedaDesc:
+      "Currency converter project developed with HTML, CSS, and JavaScript, applying concepts learned at DevClub.",
     viewProject: "View Project",
     certificatesTitle: "Certificates",
     certPlatform: "Platform:",
@@ -77,6 +79,8 @@ const translations = {
       "Projeto de uma cafeteria criado com HTML, CSS e JavaScript.",
     projectBarbershopDesc:
       "Projeto de uma barbearia criado com HTML, CSS e JavaScript.",
+    projectconversorDeMoedaDesc:
+      "Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript, aplicando conceitos aprendidos no DevClub.",
     viewProject: "Ver Projeto",
     certificatesTitle: "Certificados",
     certPlatform: "Plataforma:",
@@ -196,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       imagem: "assets/Conversor de Moeda.png",
       nome: "Conversor de Moeda",
-      descricaoKey: "projectconversorMoedaDesc",
+      descricaoKey: "projectconversorDeMoedaDesc",
       link: "https://conversor-de-moedas-vl.vercel.app/",
     },
   ];
