@@ -30,6 +30,8 @@ const translations = {
       "Project of a barbershop created with HTML, CSS, and JavaScript.",
     projectconversorDeMoedaDesc:
       "Currency converter project developed with HTML, CSS, and JavaScript, applying concepts learned at DevClub.",
+    projectPrevisaoDoTempoDesc:
+      "Weather forecast project created with HTML, CSS, and JavaScript, consuming a weather API.",
     viewProject: "View Project",
     certificatesTitle: "Certificates",
     certPlatform: "Platform:",
@@ -81,6 +83,8 @@ const translations = {
       "Projeto de uma barbearia criado com HTML, CSS e JavaScript.",
     projectconversorDeMoedaDesc:
       "Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript, aplicando conceitos aprendidos no DevClub.",
+    projectPrevisaoDoTempoDesc:
+      "Projeto de previsão do tempo criado com HTML, CSS e JavaScript, consumindo uma API de clima.",
     viewProject: "Ver Projeto",
     certificatesTitle: "Certificados",
     certPlatform: "Plataforma:",
@@ -203,8 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoKey: "projectconversorDeMoedaDesc",
       link: "https://conversor-de-moedas-vl.vercel.app/",
     },
-     {
-      imagem: "assets/Previsão do Tempo - Google Chrome 17_11_2025 20_38_09.png",
+    {
+      imagem:
+        "assets/Previsão do Tempo - Google Chrome 17_11_2025 20_38_09.png",
       nome: "Previsão do Tempo",
       descricaoKey: "projectPrevisaoDoTempoDesc",
       link: "https://projeto-previsao-do-tempo-vl.vercel.app/",
