@@ -203,6 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoKey: "projectconversorDeMoedaDesc",
       link: "https://conversor-de-moedas-vl.vercel.app/",
     },
+     {
+      imagem: "assets/Previsão do Tempo - Google Chrome 17_11_2025 20_38_09.png",
+      nome: "Previsão do Tempo",
+      descricaoKey: "projectPrevisaoDoTempoDesc",
+      link: "https://projeto-previsao-do-tempo-vl.vercel.app/",
+    },
   ];
 
   const containerProjetos = document.getElementById("container-projetos");
