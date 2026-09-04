@@ -348,6 +348,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Verifica se o elemento é um placeholder
         if (element.placeholder !== undefined) {
           element.placeholder = translation;
+        } else if (element.closest(".navbar") && element.querySelector("span")) {
+          element.querySelector("span").innerHTML = translation;
         } else {
           element.innerHTML = translation;
         }
