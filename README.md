@@ -97,7 +97,9 @@ Para visualizar o projeto em sua máquina local, siga os passos abaixo:
 
 **Vander Luis de Oliveira**
 
-- **LinkedIn:** **seu-linkedin**
+- **LinkedIn:** **www.linkedin.com/in/vander-luís-oliveira
+
+**
 - **GitHub:** **@VanderLuis25**
 
 Sinta-se à vontade para entrar em contato, conectar-se ou dar feedback sobre o projeto!
