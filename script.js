@@ -85,6 +85,8 @@ const translations = {
       "Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript, aplicando conceitos aprendidos no DevClub.",
     projectPrevisaoDoTempoDesc:
       "Projeto de previsão do tempo criado com HTML, CSS e JavaScript, consumindo uma API de clima.",
+    projectMarmitariaFitnessDesc:
+      "Projeto de uma marmitaria fitness criado com HTML, CSS e JavaScript.",
     viewProject: "Ver Projeto",
     certificatesTitle: "Certificados",
     certPlatform: "Plataforma:",
@@ -214,6 +216,13 @@ document.addEventListener("DOMContentLoaded", () => {
       descricaoKey: "projectPrevisaoDoTempoDesc",
       link: "https://projeto-previsao-do-tempo-vl.vercel.app/",
     },
+    {
+      imagem:
+        "assets/img-site-mf.png",
+      nome: "Marmitaria Fitness",
+      descricaoKey: "projectMarmitariaFitnessDesc",
+      link: "https://marmitaria-fitness.vercel.app/",
+    }
   ];
 
   const containerProjetos = document.getElementById("container-projetos");
@@ -230,12 +239,10 @@ document.addEventListener("DOMContentLoaded", () => {
       card.innerHTML = `
         <img src="${projeto.imagem}" alt="${projeto.nome}">
         <h3>${projeto.nome}</h3>
-        <p data-key="${projeto.descricaoKey}">${
-        currentTranslations[projeto.descricaoKey]
-      }</p>
-        <a href="${projeto.link}" target="_blank" data-key="viewProject">${
-        currentTranslations.viewProject
-      }</a>
+        <p data-key="${projeto.descricaoKey}">${currentTranslations[projeto.descricaoKey]
+        }</p>
+        <a href="${projeto.link}" target="_blank" data-key="viewProject">${currentTranslations.viewProject
+        }</a>
       `;
       containerProjetos.appendChild(card);
     });
