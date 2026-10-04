@@ -142,6 +142,127 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const homePhoto = document.querySelector(".home-profile-photo img");
+  const aboutPhoto = document.querySelector(".foto-perfil img");
+  const aboutPhotoWrapper = document.querySelector(".foto-perfil");
+
+  if (homePhoto && aboutPhoto && aboutPhotoWrapper) {
+    let flyingPhoto = null;
+    let sourceBox;
+    let framePending = false;
+
+    const measureSource = () => {
+      const rect = homePhoto.getBoundingClientRect();
+      sourceBox = {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY,
+        width: homePhoto.offsetWidth,
+        height: homePhoto.offsetHeight,
+      };
+    };
+
+    const removeFlyingPhoto = () => {
+      flyingPhoto?.remove();
+      flyingPhoto = null;
+      homePhoto.style.visibility = "";
+      aboutPhoto.style.visibility = "";
+    };
+
+    const updatePhotoTransition = () => {
+      framePending = false;
+      const scrollTop = window.scrollY;
+      const wrapperRect = aboutPhotoWrapper.getBoundingClientRect();
+      const wrapperTransform = getComputedStyle(aboutPhotoWrapper).transform;
+      const wrapperOffsetX =
+        wrapperTransform === "none"
+          ? 0
+          : new DOMMatrixReadOnly(wrapperTransform).m41;
+      const destinationBox = {
+        left:
+          wrapperRect.left +
+          window.scrollX -
+          wrapperOffsetX +
+          (aboutPhotoWrapper.clientWidth - aboutPhoto.offsetWidth) / 2,
+        top:
+          wrapperRect.top +
+          window.scrollY +
+          (aboutPhotoWrapper.clientHeight - aboutPhoto.offsetHeight) / 2,
+        width: aboutPhoto.offsetWidth,
+        height: aboutPhoto.offsetHeight,
+      };
+      const landingTop = Math.min(
+        sourceBox.top + Math.min(180, window.innerHeight * 0.25),
+        window.innerHeight - destinationBox.height - 24
+      );
+      const landingScroll = destinationBox.top - landingTop;
+      const progress = scrollTop / landingScroll;
+
+      if (scrollTop <= 0 || landingScroll <= 0 || progress >= 1) {
+        removeFlyingPhoto();
+        return;
+      }
+
+      const normalizedProgress = Math.max(0, Math.min(progress, 1));
+
+      if (!flyingPhoto) {
+        flyingPhoto = homePhoto.cloneNode();
+        flyingPhoto.alt = "";
+        flyingPhoto.setAttribute("aria-hidden", "true");
+        flyingPhoto.style.cssText = `
+          position: fixed;
+          z-index: 1001;
+          pointer-events: none;
+          object-fit: cover;
+          max-width: none;
+          margin: 0;
+          border: 2px solid rgba(0, 238, 255, 0.78);
+          border-radius: 50%;
+          will-change: left, top, width, height;
+        `;
+        document.body.appendChild(flyingPhoto);
+        homePhoto.style.visibility = "hidden";
+        aboutPhoto.style.visibility = "hidden";
+      }
+
+      const interpolate = (start, end) =>
+        start + (end - start) * normalizedProgress;
+      flyingPhoto.style.left = `${interpolate(
+        sourceBox.left,
+        destinationBox.left
+      ) - window.scrollX}px`;
+      flyingPhoto.style.top = `${interpolate(
+        sourceBox.top,
+        destinationBox.top
+      ) - scrollTop}px`;
+      flyingPhoto.style.width = `${interpolate(
+        sourceBox.width,
+        destinationBox.width
+      )}px`;
+      flyingPhoto.style.height = `${interpolate(
+        sourceBox.height,
+        destinationBox.height
+      )}px`;
+    };
+
+    const schedulePhotoTransition = () => {
+      if (!framePending) {
+        framePending = true;
+        requestAnimationFrame(updatePhotoTransition);
+      }
+    };
+
+    measureSource();
+    window.addEventListener("scroll", schedulePhotoTransition, { passive: true });
+    window.addEventListener(
+      "resize",
+      () => {
+        measureSource();
+        schedulePhotoTransition();
+      },
+      { passive: true }
+    );
+  }
+
   // Animação da Seção "Sobre"
   const sobreSection = document.getElementById("sobre");
   const sobreContent = document.querySelector(".sobre-content");
